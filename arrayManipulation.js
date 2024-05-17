@@ -33,11 +33,26 @@ function formatArrayStrings(stringsArray, numbersArray) {
   } // Check if arrays have same length
     
 
-  return stringsArray.map((str, num) => {
-    if (numbersArray[num] % 2 === 0) {
-      return str.toUpperCase(); // Even numbers are capitalised
-    } else {
-      return str.toLowerCase(); // Odd numbers are converted to lowercases
-     }
- });
+  let i;
+   const formattedStringsArray = [];
+
+   for (i = 0; i < stringsArray.length; i++) {
+       const str = stringsArray[i];
+       const num = numbersArray[i];
+
+       if (num % 2 === 0) {
+           formattedStringsArray.push(str.toUpperCase()); //Strings with even numbers are capitalised
+       } else {
+           formattedStringsArray.push(str.toLowerCase()); //Strings with odd numbers are changed to lower cases
+       }
+  }
+
 }
+
+
+modules.export = {
+   processArray,
+   formatArrayStrings
+};
+
+
